@@ -13,12 +13,15 @@ class Ring (object):
     def cost(self):
         return self.price * self.quantity
     def area(self):
-        return math.pi*self.radius**2
+        return round(math.pi*self.radius**2,2)
+    def perimeter(self):
+        return round(2*math.pi*self.radius,2)
+
 
 def main ():
     print("Center of ring is : {}".format(Ring.center))
     r = Ring(price = 40000)
-    print("Ring radius :{}, area :{}, Cost :{}".format(r.radius, round(r.area(),2), r.cost()))
+    print("Ring radius :{}, area :{}, perimeter :{}, Cost :{}".format(r.radius, round(r.area(),2), r.perimeter(), r.cost()))
     columns = ['radius', 'date', 'metal']
     for col in columns:
         print('{} : {}'.format(col, getattr(r,col)))
